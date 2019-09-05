@@ -1,0 +1,24 @@
+table {
+  border-collapse: collapse;
+  border: solid black 1px;
+
+  td {
+    border: solid black 1px;
+    width: 32px;
+    height: 32px;
+  }
+
+  td.canPlayHere {
+    background-color: yellow;
+  }
+}
+div.Player1, div.Player2 {
+  width: 30px;
+  height: 30px;
+  border: solid black 1px;
+  border-radius: 50%;
+}
+div.Player2 {
+  background: black;
+}
+

@@ -1,0 +1,15 @@
+<table *ngIf="getObs() | async">
+  <tbody>
+    <tr *ngFor = "let L of getBoard(); let i = index">
+      <td *ngFor = "let c of L; let j = index"
+        [class.canPlayHere] = "canPlay(i,j)"
+          (click)="play(i,j)">
+        <!--<div *ngIf="!isEmpty(c)"
+              [class.Player1]="isP1(c)"
+              [class.Player2]="isP2(c)">
+        </div> -->
+        <app-pion [player]="c"></app-pion>
+      </td>
+    </tr>
+  </tbody>
+</table>
