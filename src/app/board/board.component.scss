@@ -1,3 +1,15 @@
+section {
+  display: flex;
+  flex-flow: row;
+  .photo {
+    max-width: 64px;
+    max-height: 64px;
+  }
+
+  > img {
+    flex: 1 1
+  }
+}
 table {
   border-collapse: collapse;
   border: solid black 1px;

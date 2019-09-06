@@ -1,15 +1,26 @@
-<table *ngIf="getObs() | async">
-  <tbody>
-    <tr *ngFor = "let L of getBoard(); let i = index">
-      <td *ngFor = "let c of L; let j = index"
-        [class.canPlayHere] = "canPlay(i,j)"
-          (click)="play(i,j)">
-        <!--<div *ngIf="!isEmpty(c)"
-              [class.Player1]="isP1(c)"
-              [class.Player2]="isP2(c)">
-        </div> -->
-        <app-pion [player]="c"></app-pion>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<input #idGame type="text" [value]="docId"/>
+<input (click)="changeGame(idGame.value)" type="button" value="Changer partie"/>
+<section *ngIf="gameObs | async as game">
+  <section [style.background-color]="turnGame === 1 ? 'blue' : 'white'">
+    <img class="photo" [src]="game.player1.photoURL"/>
+    <app-pion [player]="1"></app-pion>
+  </section>
+
+  <table>
+    <tbody>
+      <tr *ngFor = "let L of game.board; let i = index">
+        <td *ngFor = "let c of L; let j = index"
+            [class.canPlayHere] = "canPlay(i,j)"
+            (click)="play(i,j)"
+        >
+          <app-pion [player]="c"></app-pion>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <section [style.background-color]="turnGame === 2 ? 'blue' : 'white'">
+    <img class="photo" [src]="game.player2.photoURL"/>
+    <app-pion [player]="2"></app-pion>
+  </section>
+</section>

@@ -1,32 +1,30 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {ReversiService} from '../reversi.service';
-import {C} from '../ReversiDefinitions';
+import {C, LocalGame, Turn} from '../ReversiDefinitions';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [ReversiService]
 })
 export class BoardComponent implements OnInit {
+  @Input() docId: string;
 
   constructor(private RS: ReversiService) {
-
   }
 
   ngOnInit() {
+    this.RS.initGame(this.docId);
   }
 
-  getBoard() {
-    return this.RS.getBoard();
+  get gameObs(): Observable<LocalGame> {
+    return this.RS.gameObs;
   }
-
-  getObs() {
-    return this.RS.getObservable();
-  }
-
   canPlay(i: number, j: number): boolean {
-    return this.RS.canPlay(i, j).length > 0;
+    return this.RS.tilesGainedIfPlayAt(i, j).length > 0;
   }
 
   isEmpty(c: C) {
@@ -42,5 +40,15 @@ export class BoardComponent implements OnInit {
 
   play(i: number, j: number) {
     this.RS.play(i, j);
+  }
+
+  changeGame(name: string) {
+    if (name) {
+      this.RS.idGame = name;
+    }
+  }
+
+  get turnGame(): Turn {
+    return this.RS.turnGame;
   }
 }

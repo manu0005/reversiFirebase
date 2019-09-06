@@ -8,6 +8,7 @@ import {ReversiService} from './reversi.service';
 import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {AngularFireAuthModule} from '@angular/fire/auth';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireAuthModule
   ],
   providers: [ReversiService],
   bootstrap: [AppComponent]

@@ -5,13 +5,28 @@
 export const environment = {
   production: false,
   firebase: {
+    apiKey: 'AIzaSyCeovB_GvNwZMzG3X1kV7UzV6y19p3nc8Y',
+    authDomain: 'reversi-32b8c.firebaseapp.com',
+    databaseURL: 'https://reversi-32b8c.firebaseio.com',
+    projectId: 'reversi-32b8c',
+    storageBucket: 'reversi-32b8c.appspot.com',
+    messagingSenderId: '177989955101',
+    appId: '1:177989955101:web:2dbee08c45ea798ce620f4'
+    /*apiKey: 'AIzaSyCANLUsnc41Ns0QvCWAH7CaxJaXcPJLrZ0',
+    authDomain: 'reversi-a671f.firebaseapp.com',
+    databaseURL: 'https://reversi-a671f.firebaseio.com',
+    projectId: 'reversi-a671f',
+    storageBucket: 'reversi-a671f.appspot.com',
+    messagingSenderId: '458271805209',
+    appId: '1:458271805209:web:1a23905efff1c4122e7f88'*/
+/*
     apiKey: 'AIzaSyBsdKR3AgO3uJZA6J_nx4pyM_rc6c4-qJE',
     authDomain: 'reversi-angular.firebaseapp.com',
     databaseURL: 'https://reversi-angular.firebaseio.com',
     projectId: 'reversi-angular',
     storageBucket: 'reversi-angular.appspot.com',
     messagingSenderId: '953808222735',
-    appId: '1:953808222735:web:bf32cce17d3bca6376017a'
+    appId: '1:953808222735:web:bf32cce17d3bca6376017a' */
   }
 };
 
