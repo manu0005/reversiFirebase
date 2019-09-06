@@ -7,6 +7,10 @@
   <p>Please login.</p>
   <button (click)="login()">Login with Google</button>
 </ng-template>
+
+<input #nameComp type="text" />
+<input (click)="createBoard(nameComp.value)" type="button" value="Créer une partie"/>
+
 <div *ngFor="let board of gamesObs | async">
   <app-board [docId]="board.docId"></app-board>
 </div>
